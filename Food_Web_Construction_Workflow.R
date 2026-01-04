@@ -60,7 +60,6 @@ grid_radius<-100000 ##change the radius around each grid coordinate , here we us
 year_min<- 1982 ## personalize year here
 year_max<- 2016
 year_range<-year_min:year_max
-## Month<- x  Personalise month here , needs to be worked into the code below as month was not used in the original study
 
 ##change spatial scale of stomach contents here , NOTE : You do not necessarily want to use the same spatial subset throughout as
 ##this may not leave enough data for adequate completeness of a predators diet, here we used -Inf to keep the 
@@ -71,11 +70,16 @@ lat_max_stom<- Inf
 long_min_stom<- -Inf
 long_max_stom<- Inf
 
+year_min_stom<- -Inf
+year_max_stom<- Inf
+
 subset_by_coords <- function(df,
                              lat = c(lat_min_stom, lat_max_stom),
                              lon = c(long_min_stom, long_max_stom),
+                             year = c(year_min_stom, year_max_stom),
                              lat_col = latitude,
-                             lon_col = longitude) {
+                             lon_col = longitude,
+                             year_col = Year) {
   df %>%
     dplyr::filter(
       (
@@ -85,11 +89,14 @@ subset_by_coords <- function(df,
         (
           is.na({{lon_col}}) |
             ({{lon_col}} >= lon[1] & {{lon_col}} <= lon[2])
+        ) &
+        (
+          is.na({{year_col}}) |
+            ({{year_col}} >= year[1] & {{year_col}} <= year[2])
         )
     )
-} ##This function also retuns NA longitude and latitude if you dont want that delete
-
-
+}
+##This function also retuns NA longitude and latitude if you dont want that delete
 
 NewIntdfAll<- subset_by_coords(NewIntdfAll)
 
@@ -4894,5 +4901,6 @@ for (i in 1:length(TL)) {
 
 setwd() # save final flux data
 saveRDS(flux, "flux.rdata")
+
 
 ## Final data lists for further analysis are FinFW and flux
