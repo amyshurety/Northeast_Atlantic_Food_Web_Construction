@@ -1,6 +1,6 @@
 A major barrier to assessing the effects of global change on complex ecosystems is the scarcity of food web observations spanning the spatial and temporal scales needed to reveal significant change. This study hopes to rectify this by presenting 4728 empirical food webs constructed every 50 km across the North Sea annually from 1992-2016. We also present a dynamic, reproducible framework for devising food webs at different spatial or temporal scales by integrating nearly four decades of standardised groundfish survey data with one of the world’s most comprehensive stomach content databases. This time series of spatially resolved food webs should help enrich analyses of environmental change on food web structure and aid reliable benchmarking of ecosystem-based management in one of the world’s most commercially important and anthropogenically influenced continental shelves. 
 
-The data required to reconstruct the food webs at the same or different spatial and temporal scales can be found in the University of Essex Data Repository (DOI)
+The data required to reconstruct the food webs at the same or different spatial and temporal scales can be found in the University of Essex Data Repository ([DOI](https://dx.doi.org/10.5526/ERDR-00000242))
 
 Methodology
 
